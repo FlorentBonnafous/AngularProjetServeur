@@ -11,14 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
 	public static void main(String[] args) {
-		try {
-                    JAXBContext cont = JAXBContext.newInstance(World.class);
-                    Unmarshaller u = cont.createUnmarshaller();
-                    World world = (World) u.unmarshal(new File(input));
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                }
+            Services services = new Services();
+            World world = new World();
+            System.out.println(services.readWorldFromXml().getLogo());
+            
 	}
 
 }
