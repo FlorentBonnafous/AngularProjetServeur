@@ -16,7 +16,8 @@ import javax.ws.rs.core.Response;
  *
  * @author ejaffre
  */
-public class Webservice {
+@Path("generic")
+public class Webservice { 
     
     Services services;
     
@@ -26,7 +27,7 @@ public class Webservice {
     
     @GET
     @Path("world")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response getWorld(){
         return Response.ok(services.getWorld()).build();
     }

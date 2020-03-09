@@ -44,8 +44,10 @@ public class Services {
         }
     }
 
-    public World getWorld(World World) { // Classe créée, à modifier ou à supprimer
+    public World getWorld() {
+        return readWorldFromXml();
+// Classe créée, à modifier ou à supprimer
    //     return saveWorldToXml(world); //faux
-    }
+    } 
 
 }

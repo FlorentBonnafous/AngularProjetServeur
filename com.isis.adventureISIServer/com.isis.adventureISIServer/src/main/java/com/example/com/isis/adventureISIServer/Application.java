@@ -11,10 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
 	public static void main(String[] args) {
-            Services services = new Services();
-            World world = new World();
-            System.out.println(services.readWorldFromXml().getLogo());
-            
+            SpringApplication.run(Application.class, args);  
 	}
 
 }
+ 
