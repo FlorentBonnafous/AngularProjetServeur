@@ -8,266 +8,239 @@ and open the template in the editor.
 
 <world
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-    xsi:noNamespaceSchemaLocation='jaxb/world/worldSchema.xsd'>
-    <name>Dealer</name>
-    <logo>icones\logo_dealer.jpg</logo>
+    xsi:noNamespaceSchemaLocation='jaxb/WorldSchema/SchemaWorld.xml.xsd'>
+    <name>Club Rugby</name>
+    <logo>icones/logoclub.png</logo>
     <money>0</money>
     <score>0</score>
     <totalangels>0</totalangels>
     <activeangels>0</activeangels>
     <angelbonus>0.02</angelbonus>
-    <lastupdate>0</lastupdate>
-    
-    <!--*****************************PRODUCTS**************************** -->
+    <lastupdate></lastupdate>
     <products>
         <product>
             <id>1</id>
-            <name>Cannabis</name>
-            <logo>icones\cannabis.png</logo>
+            <name>Ballon</name>
+            <logo>icones/ballon.jpg</logo>
             <cout>4</cout>
-            <croissance>0.07</croissance>
+            <croissance>1.07</croissance>
             <revenu>1</revenu>
-            <vitesse>1</vitesse>
+            <vitesse>500</vitesse>
             <quantite>0</quantite>
-            <timeleft>0</timeleft>
-            <managerUnlocked>false</managerUnlocked>
-            <palliers>
-            </palliers>
+            <timeleft>500</timeleft>
+            <managerUnlocked>0</managerUnlocked>
+            <palliers></palliers>
         </product>
         <product>
             <id>2</id>
-            <name>Cocaine</name>
-            <logo>icones\coke.png</logo>
-            <cout>60</cout>
-            <croissance>0.15</croissance>
-            <revenu>60</revenu>
-            <vitesse>3</vitesse>
+            <name>Crampons</name>
+            <logo>icones/crampons.jpg</logo>
+            <cout>40</cout>
+            <croissance>1.07</croissance>
+            <revenu>10</revenu>
+            <vitesse>2500</vitesse>
             <quantite>0</quantite>
-            <timeleft>0</timeleft>
-            <managerUnlocked>false</managerUnlocked>
-            <palliers>
-            </palliers>
-        </product>
-        <product>
-            <id>3</id>
-            <name>Champignons</name>
-            <logo>icones\mushroom.png</logo>
-            <cout>720</cout>
-            <croissance>14</croissance>
-            <revenu>540</revenu>
-            <vitesse>6</vitesse>
-            <quantite>0</quantite>
-            <timeleft>0</timeleft>
-            <managerUnlocked>false</managerUnlocked>
-            <palliers>
-            </palliers>
+            <timeleft>2500</timeleft>
+            <managerUnlocked>0</managerUnlocked>
+            <palliers></palliers>
         </product>
     </products>
-    <!--*****************************ALL PALLIER**************************** -->
     <allunlocks>
-        
-        <!--********pallier cannabis********** -->
         <pallier>
-            <name>La main verte</name>
-            <logo>icones\cannabis.png</logo>
+            <name>Kipsta</name>
+            <logo>icones/ballon.jpg</logo>
             <seuil>25</seuil>
             <idcible>1</idcible>
             <ratio>2</ratio>
             <typeratio>VITESSE</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>0</unlocked>
         </pallier>
         <pallier>
-            <name>Champ de cannabis</name>
-            <logo>icones\cannabis.png</logo>
+            <name>Berusbe</name>
+            <logo>icones/ballon.jpg</logo>
             <seuil>50</seuil>
             <idcible>1</idcible>
             <ratio>2</ratio>
             <typeratio>VITESSE</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>0</unlocked>
         </pallier>
         <pallier>
-            <name>Ferme de cannabis</name>
-            <logo>icones\cannabis.png</logo>
+            <name>Gilbert</name>
+            <logo>icones/ballon.jpg</logo>
             <seuil>100</seuil>
             <idcible>1</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>false</unlocked>
+            <ratio>3</ratio>
+            <typeratio>GAIN</typeratio>
+            <unlocked>0</unlocked>
         </pallier>
-        
-        <!--********pallier cocaine********** -->
         <pallier>
-            <name>Boulanger</name>
-            <logo>icones\coke.png</logo>
+            <name>Umbro</name>
+            <logo>icones/crampons.jpg</logo>
             <seuil>25</seuil>
             <idcible>2</idcible>
             <ratio>2</ratio>
             <typeratio>VITESSE</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>0</unlocked>
         </pallier>
         <pallier>
-            <name>Suivre a la trace</name>
-            <logo>icones\coke.png</logo>
+            <name>Adidas</name>
+            <logo>icones/crampons.jpg</logo>
             <seuil>50</seuil>
             <idcible>2</idcible>
             <ratio>2</ratio>
             <typeratio>VITESSE</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>0</unlocked>
         </pallier>
         <pallier>
-            <name>Le Roi de l'amidon</name>
-            <logo>icones\coke.png</logo>
+            <name>Nike</name>
+            <logo>icones/crampons.jpg</logo>
             <seuil>100</seuil>
             <idcible>2</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>false</unlocked>
-        </pallier>
-        
-        <!--********pallier champignons********** -->
-        <pallier>
-            <name>Arpenteur de forets</name>
-            <logo>icones\mushroom.png</logo>
-            <seuil>25</seuil>
-            <idcible>3</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>false</unlocked>
-        </pallier>
-        <pallier>
-            <name>Genocide de Toad</name>
-            <logo>icones\mushroom.png</logo>
-            <seuil>50</seuil>
-            <idcible>3</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>false</unlocked>
-        </pallier>
-        <pallier>
-            <name>CHAMPagne</name>
-            <logo>icones\mushroom.png</logo>
-            <seuil>100</seuil>
-            <idcible>3</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>false</unlocked>
+            <ratio>3</ratio>
+            <typeratio>GAIN</typeratio>
+            <unlocked>0</unlocked>
         </pallier>
     </allunlocks>
-    
-    <!--*****************************CASH UPGRADES**************************** -->
     <upgrades>
-        <upgrade>
-            <name>cu_cannabis_1</name>
-            <logo>icones\cannabis.png</logo>
+        <pallier>
+            <name>Pompe à air</name>
+            <logo>icones/ballon.jpg</logo>
             <seuil>250000</seuil>
             <idcible>1</idcible>
             <ratio>3</ratio>
             <typeratio>GAIN</typeratio>
-            <unlocked>false</unlocked>
-        </upgrade>
-        <upgrade>
-            <name>cu_cannabis_2</name>
-            <logo>icones\cannabis.png</logo>
+            <unlocked>0</unlocked>
+        </pallier>
+        <pallier>
+            <name>Crampons vissés</name>
+            <logo>icones/crampons.jpg</logo>
             <seuil>500000</seuil>
-            <idcible>1</idcible>  
-            <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
-            <unlocked>false</unlocked>
-        </upgrade>
-        
-        <upgrade>
-            <name>cu_cocaine_1</name>
-            <logo>icones\cocaine.png</logo>
-            <seuil>1000000</seuil>
-            <idcible>2</idcible>  
-            <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
-            <unlocked>false</unlocked>
-        </upgrade>
-        <upgrade>
-            <name>cu_cocaine_2</name>
-            <logo>icones\cocaine.png</logo>
-            <seuil>250000</seuil>
             <idcible>2</idcible>
             <ratio>3</ratio>
             <typeratio>GAIN</typeratio>
-            <unlocked>false</unlocked>
-        </upgrade>
-        
-        <upgrade>
-            <name>cu_champignon_1</name>
-            <logo>icones\mushroom.png</logo>
+            <unlocked>0</unlocked>
+        </pallier>
+        <pallier>
+            <name>Anti-derapant</name>
+            <logo>icones/ballon.jpg</logo>
+            <seuil>1000000</seuil>
+            <idcible>1</idcible>
+            <ratio>1.5</ratio>
+            <typeratio>VITESSE</typeratio>
+            <unlocked>0</unlocked>
+        </pallier>
+        <pallier>
+            <name>Replique de ceux de Dan Carter</name>
+            <logo>icones/crampons.jpg</logo>
             <seuil>5000000</seuil>
-            <idcible>3</idcible>  
-            <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
-            <unlocked>false</unlocked>
-        </upgrade>
-        <upgrade>
-            <name>cu_champignon_2</name>
-            <logo>icones\mushroom.png</logo>
+            <idcible>2</idcible>
+            <ratio>1.5</ratio>
+            <typeratio>VITESSE</typeratio>
+            <unlocked>0</unlocked>
+        </pallier>
+        <pallier>
+            <name>Ballon brillant</name>
+            <logo>icones/ballon.jpg</logo>
             <seuil>10000000</seuil>
-            <idcible>3</idcible>  
+            <idcible>1</idcible>
+            <ratio>1.5</ratio>
+            <typeratio>VITESSE</typeratio>
+            <unlocked>0</unlocked>
+        </pallier>
+        <pallier>
+            <name>Déodorisant</name>
+            <logo>icones/crampons.jpg</logo>
+            <seuil>25000000</seuil>
+            <idcible>2</idcible>
+            <ratio>1.5</ratio>
+            <typeratio>VITESSE</typeratio>
+            <unlocked>0</unlocked>
+        </pallier>
+        <pallier>
+            <name>Ballon en cuir</name>
+            <logo>icones/ballon.jpg</logo>
+            <seuil>500000000</seuil>
+            <idcible>1</idcible>
             <ratio>3</ratio>
             <typeratio>GAIN</typeratio>
-            <unlocked>false</unlocked>
-        </upgrade>
+            <unlocked>0</unlocked>
+        </pallier>
+        <pallier>
+            <name>Crampons qui courent vite</name>
+            <logo>icones/crampons.jpg</logo>
+            <seuil> 10000000000</seuil>
+            <idcible>2</idcible>
+            <ratio>3</ratio>
+            <typeratio>GAIN</typeratio>
+            <unlocked>0</unlocked>
+        </pallier>
+        <pallier>
+            <name>Monopoly</name>
+            <logo>icones/monopoly.jpg</logo>
+            <seuil>50000000000</seuil>
+            <idcible>0</idcible>
+            <ratio>3</ratio>
+            <typeratio>GAIN</typeratio>
+            <unlocked>0</unlocked>
+        </pallier>
+        <pallier>
+            <name>Ange</name>
+            <logo>icones/ange.jpg</logo>
+            <seuil>250000000000</seuil>
+            <idcible>-1</idcible>
+            <ratio>1</ratio>
+            <typeratio>ANGE</typeratio>
+            <unlocked>0</unlocked>
+        </pallier>  
     </upgrades>
-    
-    <!--*****************************ANGEL UPGRADES**************************** -->
     <angelupgrades>
-        <angelupgrade>
-            <name>Angel Sacrifice</name>
-            <logo>icones\devil.png</logo>
+        <pallier>
+            <name>Ange Vitesse</name>
+            <logo>icones/ange.jpg</logo>
             <seuil>10000</seuil>
-            <idcible>0</idcible>  <!-- "0" car ameliore la production de tous les produits -->
+            <idcible>0</idcible>
             <ratio>3</ratio>
             <typeratio>GAIN</typeratio>
-            <unlocked>false</unlocked>
-        </angelupgrade>
-        <angelupgrade>
-            <name>Angelic Mutinity</name>
-            <logo>icones\devil.png</logo>
+            <unlocked>0</unlocked>
+        </pallier>  
+        <pallier>
+            <name>Ange Cadrage Débordement</name>
+            <logo>icones/ange.jpg</logo>
             <seuil>100000</seuil>
-            <idcible>1</idcible> <!-- "-1" car améliore l'efficacite des anges -->
+            <idcible>-1</idcible>
             <ratio>2</ratio>
             <typeratio>ANGE</typeratio>
-            <unlocked>false</unlocked>
-        </angelupgrade>
-        <angelupgrade>
-            <name>Angelic Rebellion</name>
-            <logo>icones\devil.png</logo>
+            <unlocked>0</unlocked>
+        </pallier>  
+        <pallier>
+            <name>Ange Coup de Pied</name>
+            <logo>icones/ange.jpg</logo>
             <seuil>100000000</seuil>
-            <idcible>1</idcible> <!-- "-1" car améliore l'efficacite des anges -->
+            <idcible>-1</idcible>
             <ratio>2</ratio>
             <typeratio>ANGE</typeratio>
-            <unlocked>false</unlocked>
-        </angelupgrade>
-    </angelupgrades>
-    
-    <!--*****************************MANAGERS**************************** -->
+            <unlocked>0</unlocked>
+        </pallier>          
+    </angelupgrades> 
     <managers>
-        <manager>
-            <name>Koba la D</name>
-            <logo>icones\koba.jpg</logo>
+        <pallier>
+            <name>Mauricio Reggiardo</name>
+            <logo>icones/reggiardo.jpg</logo>
             <seuil>1000</seuil>
             <idcible>1</idcible>
-            <unlocked>false</unlocked>
-        </manager>
-        <manager>
-            <name>Ninho</name>
-            <logo>icones\ninho.jpg</logo>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked>0</unlocked>
+        </pallier>
+        <pallier>
+            <name>Jacques Brunel</name>
+            <logo>icones/brunel.jpg</logo>
             <seuil>15000</seuil>
             <idcible>2</idcible>
-            <unlocked>false</unlocked>
-        </manager>
-        <manager>
-            <name>Jul</name>
-            <logo>icones\jul.jpg</logo>
-            <seuil>100000</seuil>
-            <idcible>3</idcible> 
-            <unlocked>false</unlocked>
-        </manager>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked>0</unlocked>
+        </pallier>
     </managers>
 
 </world>

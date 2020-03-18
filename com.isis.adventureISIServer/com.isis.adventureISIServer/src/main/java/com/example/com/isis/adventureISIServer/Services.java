@@ -18,7 +18,7 @@ import javax.xml.bind.Unmarshaller;
 
 /**
  *
- * @author psandre
+ * @author Flore
  */
 public class Services {
 

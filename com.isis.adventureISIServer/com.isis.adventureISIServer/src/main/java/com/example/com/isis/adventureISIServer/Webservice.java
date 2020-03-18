@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 
 /**
  *
- * @author ejaffre
+ * @author Flore
  */
 @Path("generic")
 public class Webservice { 

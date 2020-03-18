@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author ejaffre
+ * @author Flore
  */
 
 @Component
