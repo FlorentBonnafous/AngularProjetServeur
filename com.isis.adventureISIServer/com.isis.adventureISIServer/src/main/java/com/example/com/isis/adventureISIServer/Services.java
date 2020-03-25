@@ -30,7 +30,7 @@ import javax.xml.bind.Unmarshaller;
 public class Services {
 
     InputStream input = getClass().getClassLoader().getResourceAsStream("world.xml");
-    int compteur = 0;
+    //int compteur = 0;
 
     //int premiercoup = 0;
     //Nous retourne le monde en fonction du nom d'utilisateur
@@ -64,17 +64,16 @@ public class Services {
     World getWorld(String username) throws JAXBException, IOException {
         //On récupère le monde 
         World world = readWorldFromXml(username);
-        System.out.println("money avant majmonde : "+world.getMoney());
+        //System.out.println("money avant majmonde : "+world.getMoney());
         //appel de notre mise à jour du monde
         majMonde(world);
-        System.out.println("money après majmonde : "+world.getMoney());
+        //System.out.println("money après majmonde : "+world.getMoney());
         saveWorldToXml(world, username);
         return world;
     }
 
     public World majMonde(World world) {
-        System.out.println("money dans majmonde : "+world.getMoney());
-        if(compteur>0){
+        System.out.println("Màj du monde");
         //On calcule le temps qui s'ecoule depuis la dernière màj du monde
         long timespend = System.currentTimeMillis() - world.getLastupdate();
         //On fait une boucle qui nous permet d'accéder à tous les produits
@@ -85,40 +84,39 @@ public class Services {
                 //Si le temps restant pour l'achat du produit est écoulé
                 if (p.getTimeleft() < timespend) {
                     //Si l'on a le manager :
+                    //System.out.println("Manager de " + p.getName() + " : " + p.isManagerUnlocked());
                     if (p.isManagerUnlocked()) {
-                        //On compte le nombe de produits total
+                        System.out.println("Oui oui uoi manager de : " + p.getName());
+                        //On compte le nombre de produits total
                         int nbproduits = (int) ((timespend - p.getTimeleft()) / p.getVitesse());
                         //màj de notre argent total
-                        world.setMoney(world.getMoney() + (nbproduits) * p.getRevenu());
+                        world.setMoney(arrondi(world.getMoney()) + (nbproduits) * arrondi(p.getRevenu()));
                         //màj timeleft
-                        p.setTimeleft(p.getVitesse() - (nbproduits) * p.getVitesse());
-                        System.out.println("money avec manaj : " + world.getMoney());
+                        p.setTimeleft(p.getVitesse() - timespend % p.getVitesse());
+                        //System.out.println("money avec manaj : " + world.getMoney());
                         //Si l'on a pas le manageur :    
                     } else {
-                        //ajout d'un seul produit
-                        world.setMoney(world.getMoney() + p.getRevenu());
-                        //System.out.println("money ss manaj : " + world.getMoney());
+                        if (p.getTimeleft() != 0 && p.getTimeleft() < timespend) {
+                            //ajout d'un seul produit
+                            world.setMoney(arrondi(world.getMoney()) + p.getRevenu());
+                            world.setScore(arrondi(world.getScore()) + p.getRevenu());
+                        }
+                        else{
+                            p.setTimeleft(p.getTimeleft() - timespend);
+                        }                
                     }
                     //màj de timeleft si la création du produit n'est pas terminée
-                } else {
-                    p.setTimeleft(p.getTimeleft() - timespend);
-                }
+                } 
             }
             //repositionnement du lastUpdate sur l'instant courant
             world.setLastupdate(System.currentTimeMillis());
-            //System.out.println(timespend);
-            //System.out.println("money : "+world.getMoney());
-            
-        }
-        }
-        compteur=+1;
+        }     
         return world;
     }
 
     public ProductType findProductByID(World world, int id) {
         ProductType pt = null;
-        List<ProductType> t = (List<ProductType>) world.getProducts().getProduct();
-        for (ProductType a : t) {
+        for (ProductType a : world.getProducts().getProduct()) {
             if (id == a.getId()) {
                 pt = a;
             }
@@ -128,8 +126,7 @@ public class Services {
 
     public PallierType findManagerByName(World world, String name) {
         PallierType manager = null;
-        List<PallierType> pt = (List<PallierType>) world.getManagers().getPallier();
-        for (PallierType a : pt) {
+        for (PallierType a : world.getManagers().getPallier()) {
             if (name.equals(a.getName())) {
                 manager = a;
             }
@@ -170,24 +167,27 @@ public class Services {
             }
             double emissionCout = 0;
             emissionCout = cout2 - cout1;
-            System.out.println("cout2 : " + cout2);
-            System.out.println("cout1 : " + cout1);
-            System.out.println("emissionCout : " + emissionCout);
-            double finalmoney =0;
-            System.out.println("money avant calcul : " + money);
+            //System.out.println("cout2 : " + cout2);
+            //System.out.println("cout1 : " + cout1);
+            //System.out.println("emissionCout : " + emissionCout);
+            double finalmoney = 0;
+            //System.out.println("money avant calcul : " + money);
             finalmoney = money - emissionCout;
-            world.setMoney(finalmoney);
+            world.setMoney(arrondi(finalmoney));
 
-            System.out.println("money : " + finalmoney);
-
+            //System.out.println("money : " + finalmoney);
             product.setQuantite(newproduct.getQuantite());
             //System.out.println("qtité : "+newproduct.getQuantite());
         } else {
             // initialiser product.timeleft à product.vitesse pour lancer la production
             product.setTimeleft(product.getVitesse());
+            double money = world.getMoney();
+            world.setMoney(arrondi(money) + arrondi(product.getRevenu()));
+
         }
         // sauvegarder les changements du monde
         saveWorldToXml(world, username);
+        // System.out.println("money apres prod : "+world.getMoney());
         return true;
     }
 
@@ -204,6 +204,7 @@ public class Services {
         }
         // débloquer ce manager
         manager.setUnlocked(true);
+        System.out.println("Manager : " + manager.getName());
         //trouver le produit correspondant au manager
         ProductType product = findProductByID(world, manager.getIdcible());
         if (product == null) {
@@ -211,11 +212,23 @@ public class Services {
         }
         // débloquer le manager de ce produit
         product.setManagerUnlocked(true);
+        System.out.println("Déblocage du manager !!!! " + product.isManagerUnlocked());
         // soustraire de l'argent du joueur le cout du manager
-        world.setMoney(world.getMoney() - manager.getSeuil());
+        //System.out.println("après avant manager : "+world.getMoney());
+        world.setMoney(arrondi(world.getMoney()) - manager.getSeuil());
+        //System.out.println("après achat manager : "+world.getMoney());
         // sauvegarder les changements au monde
         saveWorldToXml(world, username);
         return true;
+    }
+
+    double arrondi(double nombre) {
+        if (nombre < 1000) {
+            nombre = (double) Math.round(nombre * 100) / 100;
+        } else {
+            nombre = (double) Math.round(nombre);
+        }
+        return nombre;
     }
 
 }
