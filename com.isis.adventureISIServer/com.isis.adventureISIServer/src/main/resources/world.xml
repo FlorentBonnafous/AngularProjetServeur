@@ -44,6 +44,19 @@ and open the template in the editor.
             <managerUnlocked>0</managerUnlocked>
             <palliers></palliers>
         </product>
+        <product>
+            <id>3</id>
+            <name>Terrain</name>
+            <logo>icones/crampons.jpg</logo>
+            <cout>40</cout>
+            <croissance>1.07</croissance>
+            <revenu>10</revenu>
+            <vitesse>2500</vitesse>
+            <quantite>0</quantite>
+            <timeleft>0</timeleft>
+            <managerUnlocked>0</managerUnlocked>
+            <palliers></palliers>
+        </product>
     </products>
     <allunlocks>
         <pallier>
