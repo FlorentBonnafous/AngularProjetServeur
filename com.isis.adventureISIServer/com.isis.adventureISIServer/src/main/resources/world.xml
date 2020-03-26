@@ -27,7 +27,7 @@ and open the template in the editor.
             <revenu>1</revenu>
             <vitesse>500</vitesse>
             <quantite>0</quantite>
-            <timeleft>500</timeleft>
+            <timeleft>0</timeleft>
             <managerUnlocked>0</managerUnlocked>
             <palliers></palliers>
         </product>
@@ -40,7 +40,7 @@ and open the template in the editor.
             <revenu>10</revenu>
             <vitesse>2500</vitesse>
             <quantite>0</quantite>
-            <timeleft>2500</timeleft>
+            <timeleft>0</timeleft>
             <managerUnlocked>0</managerUnlocked>
             <palliers></palliers>
         </product>

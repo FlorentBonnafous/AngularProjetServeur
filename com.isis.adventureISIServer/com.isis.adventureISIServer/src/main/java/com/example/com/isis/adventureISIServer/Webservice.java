@@ -36,7 +36,8 @@ public class Webservice {
     @Path("world")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response getXml(@Context HttpServletRequest request) throws JAXBException, IOException {
-        String username = request.getHeader("X-user");
+        String username = request.getHeader("X-User");
+        //String username  = "test1212";
         //System.out.println(username+"webservice");
         return Response.ok(services.getWorld(username)).build();
     }
