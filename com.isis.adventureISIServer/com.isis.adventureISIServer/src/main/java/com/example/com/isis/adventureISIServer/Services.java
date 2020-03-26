@@ -80,7 +80,7 @@ public class Services {
         //On fait une boucle qui nous permet d'accéder à tous les produits
         ProductsType ps = world.getProducts();
         for (ProductType p : ps.getProduct()) {
-
+            System.out.println("timeleft : "+p.getTimeleft());
             //Si le joueur possède le produit
             if (p.getTimeleft() > 0) {
                 //Si l'on a le manager :
@@ -92,7 +92,7 @@ public class Services {
                     world.setMoney(arrondi(world.getMoney()) + (nbproduits) * arrondi(p.getRevenu()));
                     //màj timeleft
                     p.setTimeleft(p.getVitesse() - timespend % p.getVitesse());
-                    //System.out.println("money avec manaj : " + world.getMoney());
+                    System.out.println("money après calcul : " + world.getMoney());
                     //Si l'on a pas le manageur :    
                 } else {
                     if (p.getTimeleft() != 0 && p.getTimeleft() < timespend) {
@@ -141,9 +141,10 @@ public class Services {
         // aller chercher le monde qui correspond au joueur
         World world = getWorld(username);
         // trouver dans ce monde, le produit équivalent à celui passé// en paramètre
-        
+        System.out.println("money update product : "+world.getMoney());
         ProductType product = findProductByID(world, newproduct.getId());
         if (product == null) {
+            System.out.println("pas produit");
             return false;
         }
         System.out.println(" Update product: Manager de " + product.getName() + " : " + product.isManagerUnlocked());
@@ -205,6 +206,7 @@ public class Services {
         }
         // débloquer le manager de ce produit
         product.setManagerUnlocked(true);
+        product.setTimeleft(product.getVitesse());
         //System.out.println("Déblocage du manager !!!! " + product.isManagerUnlocked());
         // soustraire de l'argent du joueur le cout du manager
         world.setMoney(arrondi(world.getMoney()) - manager.getSeuil());
