@@ -66,7 +66,7 @@ public class Services {
         World world = readWorldFromXml(username);
         //System.out.println("money avant majmonde : "+world.getMoney());
         //appel de notre mise à jour du monde
-        System.out.println("Màj du monde de : "+username);
+        //System.out.println("Màj du monde de : "+username);
         majMonde(world);
         //System.out.println("money après majmonde : "+world.getMoney());
         saveWorldToXml(world, username);
@@ -75,50 +75,41 @@ public class Services {
 
     public World majMonde(World world) {
         //On calcule le temps qui s'ecoule depuis la dernière màj du monde
-        System.out.println("Argent du joueur  : "+world.getMoney());
+       // System.out.println("Argent du joueur  : " + world.getMoney());
         long timespend = System.currentTimeMillis() - world.getLastupdate();
         //On fait une boucle qui nous permet d'accéder à tous les produits
         ProductsType ps = world.getProducts();
         for (ProductType p : ps.getProduct()) {
-            
+
             //Si le joueur possède le produit
-            System.out.println("timeleft : "+p.getTimeleft());
             if (p.getTimeleft() > 0) {
-                //Si le temps restant pour l'achat du produit est écoulé
-                if (p.getTimeleft() < timespend) {
-                    //Si l'on a le manager :
-                    //System.out.println("Manager de " + p.getName() + " : " + p.isManagerUnlocked());
-                    if (p.isManagerUnlocked()) {
-                        //System.out.println("Oui oui uoi manager de : " + p.getName());
-                        //On compte le nombre de produits total
-                        int nbproduits = (int) ((timespend - p.getTimeleft()) / p.getVitesse());
-                        //màj de notre argent total
-                        world.setMoney(arrondi(world.getMoney()) + (nbproduits) * arrondi(p.getRevenu()));
-                        //màj timeleft
-                        p.setTimeleft(p.getVitesse() - timespend % p.getVitesse());
-                        //System.out.println("money avec manaj : " + world.getMoney());
-                        //Si l'on a pas le manageur :    
+                //Si l'on a le manager :
+                System.out.println(" maj monde : Manager de " + p.getName() + " : " + p.isManagerUnlocked());
+                if (p.isManagerUnlocked()) {
+                    //On compte le nombre de produits total
+                    int nbproduits = (int) ((timespend - p.getTimeleft()) / p.getVitesse());
+                    //màj de notre argent total
+                    world.setMoney(arrondi(world.getMoney()) + (nbproduits) * arrondi(p.getRevenu()));
+                    //màj timeleft
+                    p.setTimeleft(p.getVitesse() - timespend % p.getVitesse());
+                    //System.out.println("money avec manaj : " + world.getMoney());
+                    //Si l'on a pas le manageur :    
+                } else {
+                    if (p.getTimeleft() != 0 && p.getTimeleft() < timespend) {
+                        //System.out.println("timespend : "+timespend);
+                        //ajout d'un seul produit
+                        world.setMoney(arrondi(world.getMoney()) + p.getRevenu());
+                        p.setTimeleft(0);
                     } else {
-                        System.out.println("timespend : "+timespend);
-                        System.out.println("temps restemps pour créer le prod : "+p.getTimeleft());
-                        if (p.getTimeleft() != 0 && p.getTimeleft() < timespend) {
-                            
-                            //System.out.println("timespend : "+timespend);
-                            //ajout d'un seul produit
-                            world.setMoney(arrondi(world.getMoney()) + p.getRevenu());
-                            System.out.println("Argent du joueur après maj  : "+world.getMoney());
-                        }
-                        else{
-                            //màj de timeleft si la création du produit n'est pas terminée
-                            p.setTimeleft(p.getTimeleft() - timespend);
-                        }                
+                        //màj de timeleft si la création du produit n'est pas terminée
+                        p.setTimeleft(p.getTimeleft() - timespend);
                     }
-                    
-                } 
+                }
+
             }
             //repositionnement du lastUpdate sur l'instant courant
             world.setLastupdate(System.currentTimeMillis());
-        }     
+        }
         return world;
     }
 
@@ -148,12 +139,14 @@ public class Services {
     public Boolean updateProduct(String username, ProductType newproduct) throws JAXBException, IOException {
         //System.out.println("verif update product");
         // aller chercher le monde qui correspond au joueur
-        World world = getWorld(username); 
+        World world = getWorld(username);
         // trouver dans ce monde, le produit équivalent à celui passé// en paramètre
+        
         ProductType product = findProductByID(world, newproduct.getId());
         if (product == null) {
             return false;
         }
+        System.out.println(" Update product: Manager de " + product.getName() + " : " + product.isManagerUnlocked());
         // calculer la variation de quantité. Si elle est positive c'est
         // que le joueur a acheté une certaine quantité de ce produit
         // sinon c’est qu’il s’agit d’un lancement de production.
@@ -185,9 +178,6 @@ public class Services {
         } else {
             // initialiser product.timeleft à product.vitesse pour lancer la production
             product.setTimeleft(product.getVitesse());
-            double money = world.getMoney();
-            world.setMoney(arrondi(money) + arrondi(product.getRevenu()));
-            System.out.println("money : "+world.getMoney());
         }
         // sauvegarder les changements du monde
         saveWorldToXml(world, username);
@@ -198,9 +188,8 @@ public class Services {
     // prend en paramètre le pseudo du joueur et le manager acheté.
     // renvoie false si l’action n’a pas pu être traitée
     public boolean updateManager(String username, PallierType newmanager) throws JAXBException, IOException {
-        //System.out.println("verif update manager");
-        // aller chercher le monde qui correspond au joueur   
-        //System.out.println("Nom du joueur : "+username);
+        // aller chercher le monde qui correspond au joueur 
+        System.out.println("Achat d un manager");
         World world = getWorld(username);
         // trouver dans ce monde, le manager équivalent à celui passé en paramètre
         PallierType manager = findManagerByName(world, newmanager.getName());
@@ -209,7 +198,6 @@ public class Services {
         }
         // débloquer ce manager
         manager.setUnlocked(true);
-        //System.out.println("Manager : " + manager.getName());
         //trouver le produit correspondant au manager
         ProductType product = findProductByID(world, manager.getIdcible());
         if (product == null) {
@@ -219,9 +207,7 @@ public class Services {
         product.setManagerUnlocked(true);
         //System.out.println("Déblocage du manager !!!! " + product.isManagerUnlocked());
         // soustraire de l'argent du joueur le cout du manager
-        //System.out.println("après avant manager : "+world.getMoney());
         world.setMoney(arrondi(world.getMoney()) - manager.getSeuil());
-        //System.out.println("après achat manager : "+world.getMoney());
         // sauvegarder les changements au monde
         saveWorldToXml(world, username);
         return true;
