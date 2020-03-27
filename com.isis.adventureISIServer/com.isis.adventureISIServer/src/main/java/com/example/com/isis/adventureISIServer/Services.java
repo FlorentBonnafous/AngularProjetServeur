@@ -78,13 +78,11 @@ public class Services {
         // System.out.println("Argent du joueur  : " + world.getMoney());
         long now = System.currentTimeMillis();
         long timespend = now - world.getLastupdate();
-        System.out.println("timespend: "+ timespend);
         //repositionnement du lastUpdate sur l'instant courant
         world.setLastupdate(now);
         //On fait une boucle qui nous permet d'accéder à tous les produits
         ProductsType ps = world.getProducts();
         for (ProductType p : ps.getProduct()) {
-            System.out.println("timeleft du produit: "+ p.getName()+" :" + p.getTimeleft());
             //Si le joueur possède le produit
             // pour être précis, si le joueur possède le produit et si le produit est en production. Mais le truc
             // c'est que même si timeleft est a zéro, si on le manager, il faut calculer combien on en a produit
@@ -92,12 +90,10 @@ public class Services {
             //if (p.getTimeleft() > 0) {
             // que l'on ai le manager ou pas, on soustrait le timeleft du produit au temps qui s'est écoulé
             long timeleft = timespend - p.getTimeleft();
-            System.out.println("timespend minus timeleft du produit : " +p.getName()+" :"+ timeleft);
             // si timeleft < 0, on a pas eu le temps de produire, mais on réduit le timeleft du produit de
             // ce qui s'est écoulé comme temps.
             if (timeleft < 0) {
                 p.setTimeleft(p.getTimeleft() - timespend);
-                System.out.println("newtimeleft du produit : " +p.getName()+" :"+ p.getTimeleft());
             } else {
                 int quantiteproduite = 0;
                 //System.out.println(" maj monde : Manager de " + p.getName() + " : " + p.isManagerUnlocked());
