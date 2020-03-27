@@ -9,6 +9,7 @@ import generated.ProductType;
 import generated.World;
 import generated.PallierType;
 import generated.ProductsType;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -24,7 +25,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 /**
- *
  * @author Flore
  */
 public class Services {
@@ -75,40 +75,59 @@ public class Services {
 
     public World majMonde(World world) {
         //On calcule le temps qui s'ecoule depuis la dernière màj du monde
-       // System.out.println("Argent du joueur  : " + world.getMoney());
-        long timespend = System.currentTimeMillis() - world.getLastupdate();
+        // System.out.println("Argent du joueur  : " + world.getMoney());
+        long now = System.currentTimeMillis();
+        long timespend = now - world.getLastupdate();
+        System.out.println("timespend: "+ timespend);
+        //repositionnement du lastUpdate sur l'instant courant
+        world.setLastupdate(now);
         //On fait une boucle qui nous permet d'accéder à tous les produits
         ProductsType ps = world.getProducts();
         for (ProductType p : ps.getProduct()) {
-            System.out.println("timeleft : "+p.getTimeleft());
+            System.out.println("timeleft du produit: "+ p.getName()+" :" + p.getTimeleft());
             //Si le joueur possède le produit
-            if (p.getTimeleft() > 0) {
-                //Si l'on a le manager :
-                System.out.println(" maj monde : Manager de " + p.getName() + " : " + p.isManagerUnlocked());
+            // pour être précis, si le joueur possède le produit et si le produit est en production. Mais le truc
+            // c'est que même si timeleft est a zéro, si on le manager, il faut calculer combien on en a produit
+            // dans le temps écoulé, donc le test ci-dessous n'a pas lieu d'être.
+            //if (p.getTimeleft() > 0) {
+            // que l'on ai le manager ou pas, on soustrait le timeleft du produit au temps qui s'est écoulé
+            long timeleft = timespend - p.getTimeleft();
+            System.out.println("timespend minus timeleft du produit : " +p.getName()+" :"+ timeleft);
+            // si timeleft < 0, on a pas eu le temps de produire, mais on réduit le timeleft du produit de
+            // ce qui s'est écoulé comme temps.
+            if (timeleft < 0) {
+                p.setTimeleft(p.getTimeleft() - timespend);
+                System.out.println("newtimeleft du produit : " +p.getName()+" :"+ p.getTimeleft());
+            } else {
+                int quantiteproduite = 0;
+                //System.out.println(" maj monde : Manager de " + p.getName() + " : " + p.isManagerUnlocked());
                 if (p.isManagerUnlocked()) {
-                    //On compte le nombre de produits total
-                    int nbproduits = (int) ((timespend - p.getTimeleft()) / p.getVitesse());
-                    //màj de notre argent total
-                    world.setMoney(arrondi(world.getMoney()) + (nbproduits) * arrondi(p.getRevenu()));
+                    //On compte le nombre d'item produit pendant le temps écoulé
+                    // ce n'est pas timespend que l'on divise, c'est le timespend auquel on a enlevé le
+                    // timeleft du produit.
+                    // En effet on est obligé de traiter le cas du premier item produit à part, parce qu'il ne lui restait
+                    // plus que timeleft pour se finir. Les autres produits, il leur faut leur vitesse complête
+                    // pour se finir. Du coup on ajoute 1 à la fin pour ce premier item produit.
+                    quantiteproduite = (int) ((timeleft) / p.getVitesse()) + 1;
                     //màj timeleft
-                    p.setTimeleft(p.getVitesse() - timespend % p.getVitesse());
-                    System.out.println("money après calcul : " + world.getMoney());
-                    //Si l'on a pas le manageur :    
+                    p.setTimeleft(p.getVitesse() - timeleft % p.getVitesse());
+                    //Si l'on a pas le manageur :
                 } else {
-                    if (p.getTimeleft() != 0 && p.getTimeleft() < timespend) {
+                    if (p.getTimeleft() != 0) {
                         //System.out.println("timespend : "+timespend);
                         //ajout d'un seul produit
-                        world.setMoney(arrondi(world.getMoney()) + p.getRevenu());
+                        quantiteproduite = 1;
                         p.setTimeleft(0);
-                    } else {
-                        //màj de timeleft si la création du produit n'est pas terminée
-                        p.setTimeleft(p.getTimeleft() - timespend);
                     }
                 }
-
+                double revenu = quantiteproduite * p.getQuantite() * p.getRevenu();
+                // on n'oublie pas le bonus des anges
+                revenu += world.getActiveangels() * world.getAngelbonus() / 100;
+                world.setMoney(world.getMoney() + revenu);
+                // on n'oublie pas aussi d'augmenter le score
+                world.setScore(world.getScore() + revenu);
+                System.out.println("money après calcul : " + world.getMoney());
             }
-            //repositionnement du lastUpdate sur l'instant courant
-            world.setLastupdate(System.currentTimeMillis());
         }
         return world;
     }
@@ -141,7 +160,7 @@ public class Services {
         // aller chercher le monde qui correspond au joueur
         World world = getWorld(username);
         // trouver dans ce monde, le produit équivalent à celui passé// en paramètre
-        System.out.println("money update product : "+world.getMoney());
+        System.out.println("money update product : " + world.getMoney());
         ProductType product = findProductByID(world, newproduct.getId());
         if (product == null) {
             System.out.println("pas produit");
@@ -189,7 +208,7 @@ public class Services {
     // prend en paramètre le pseudo du joueur et le manager acheté.
     // renvoie false si l’action n’a pas pu être traitée
     public boolean updateManager(String username, PallierType newmanager) throws JAXBException, IOException {
-        // aller chercher le monde qui correspond au joueur 
+        // aller chercher le monde qui correspond au joueur
         System.out.println("Achat d un manager");
         World world = getWorld(username);
         // trouver dans ce monde, le manager équivalent à celui passé en paramètre
