@@ -151,6 +151,16 @@ public class Services {
         return manager;
     }
 
+    public PallierType findUpgradeByName(World world, String name) {
+        PallierType upgrade = null;
+        for (PallierType a : world.getUpgrades().getPallier()) {
+            if (name.equals(a.getName())) {
+                upgrade = a;
+            }
+        }
+        return upgrade;
+    }
+
     public int findMinQtite(World world, int id) {
         ProductType pt = null;
         int qtite = 0;
@@ -168,26 +178,26 @@ public class Services {
     }
 
     public void unlockUnlock(PallierType unlock, ProductType product) {
-        
-            //on passe à true la propriété du unlock
-            unlock.setUnlocked(true);
-            //si c'est un unlock de vitesse : on met à jour la nouvelle vitesse de création
-            if (unlock.getTyperatio() == TyperatioType.VITESSE) {
-                int vitesse = product.getVitesse();
-                vitesse = (int) (vitesse / unlock.getRatio());
-                product.setVitesse(vitesse);
-                //System.out.println("vitesse"+vitesse);
-                //mise à jour du timeleft si un produit est en prod
-                if (product.getTimeleft() > 0) {
-                    product.setTimeleft((long) (product.getTimeleft() / unlock.getRatio()));
-                }
-            } //si c'est un unlock de gain : on met à jour le nouveau revenu du produit
-            else if(unlock.getTyperatio() == TyperatioType.GAIN) {
-                double revenu = product.getRevenu();
-                revenu = revenu * unlock.getRatio();
-                product.setRevenu(revenu);
+
+        //on passe à true la propriété du unlock
+        unlock.setUnlocked(true);
+        //si c'est un unlock de vitesse : on met à jour la nouvelle vitesse de création
+        if (unlock.getTyperatio() == TyperatioType.VITESSE) {
+            int vitesse = product.getVitesse();
+            vitesse = (int) (vitesse / unlock.getRatio());
+            product.setVitesse(vitesse);
+            //System.out.println("vitesse"+vitesse);
+            //mise à jour du timeleft si un produit est en prod
+            if (product.getTimeleft() > 0) {
+                product.setTimeleft((long) (product.getTimeleft() / unlock.getRatio()));
             }
-        
+        } //si c'est un unlock de gain : on met à jour le nouveau revenu du produit
+        else if (unlock.getTyperatio() == TyperatioType.GAIN) {
+            double revenu = product.getRevenu();
+            revenu = revenu * unlock.getRatio();
+            product.setRevenu(revenu);
+        }
+
     }
 
     // prend en paramètre le pseudo du joueur et le produit
@@ -248,14 +258,14 @@ public class Services {
         List<PallierType> listePalliers = (List<PallierType>) product.getPalliers().getPallier();
         for (PallierType unlock : listePalliers) {
             //Si l'unlock n'est pas encore débloqué et qu'il y assez de produits pour le débloquer :
-        if (unlock.isUnlocked() == false && product.getQuantite() >= unlock.getSeuil()) {
-            unlockUnlock(unlock, product);
-        }
-            
+            if (unlock.isUnlocked() == false && product.getQuantite() >= unlock.getSeuil()) {
+                unlockUnlock(unlock, product);
+            }
+
         }
         //ALLUNLOCKS
         int minqtite = findMinQtite(world, newproduct.getId());
-        System.out.println("Qité minimale : "+minqtite);
+        System.out.println("Qité minimale : " + minqtite);
         List<PallierType> listeAllunlock = (List<PallierType>) world.getAllunlocks().getPallier();
         for (PallierType allUnlock : listeAllunlock) {
             if (allUnlock.isUnlocked() == false && minqtite >= allUnlock.getSeuil()) {
@@ -305,7 +315,43 @@ public class Services {
 
     // prend en paramètre le pseudo du joueur et le manager acheté.
     // renvoie false si l’action n’a pas pu être traitée
-    public boolean updateUpgrade(String username, PallierType newmanager) throws JAXBException, IOException {
+    public boolean updateUpgrade(String username, PallierType newupgrade) throws JAXBException, IOException {
+        // aller chercher le monde qui correspond au joueur
+        System.out.println("Achat d un upgrade");
+        World world = getWorld(username);
+        // trouver dans ce monde, le manager équivalent à celui passé en paramètre
+        PallierType upgrade = findUpgradeByName(world, newupgrade.getName());
+        if (upgrade == null) {
+            System.out.println("pas trouvé ungrade");
+            return false;
+        }
+
+        //Si on a assez d'argent
+        if (world.getMoney() >= newupgrade.getSeuil()) {
+            //si l'upgrade était bien disponible à l'achat et que c'est un upgrade général
+            if (upgrade.getIdcible() == 0) {
+                System.out.println("upgrade général !!!!!!!!");
+                upgrade.setUnlocked(true);
+                world.setMoney(arrondi(world.getMoney()) - upgrade.getSeuil());
+                List<ProductType> listeProduits = (List<ProductType>) world.getProducts().getProduct();
+                for (ProductType produit : listeProduits) {
+                    unlockUnlock(newupgrade, produit);
+                }
+            } else {
+                //trouver le produit correspondant à l'update
+                ProductType product = findProductByID(world, upgrade.getIdcible());
+                if (product == null) {
+                    System.out.println("pas trouvé produit");
+                    return false;
+                }
+                System.out.println("upgrade indiv !!!!!!!!");
+                unlockUnlock(upgrade, product);
+                upgrade.setUnlocked(true);
+                world.setMoney(arrondi(world.getMoney()) - upgrade.getSeuil());
+            }
+        }
+        //sauvegarde du monde
+        saveWorldToXml(world, username);
         return true;
     }
 
