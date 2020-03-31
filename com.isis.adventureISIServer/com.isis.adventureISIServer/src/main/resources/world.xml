@@ -10,8 +10,8 @@ and open the template in the editor.
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xsi:noNamespaceSchemaLocation='jaxb/WorldSchema/SchemaWorld.xml.xsd'>
     <name>Club Rugby</name>
-    <logo>icones/logoclub.png</logo>
-    <money>20000</money>
+    <logo>icones/logo.jpg</logo>
+    <money>20000000</money>
     <score>0</score>
     <totalangels>0</totalangels>
     <activeangels>0</activeangels>
@@ -26,10 +26,38 @@ and open the template in the editor.
             <croissance>1.07</croissance>
             <revenu>1</revenu>
             <vitesse>500</vitesse>
-            <quantite>0</quantite>
+            <quantite>1</quantite>
             <timeleft>0</timeleft>
             <managerUnlocked>0</managerUnlocked>
-            <palliers></palliers>
+            <palliers>            
+                <pallier>
+                    <name>Kipsta</name>
+                    <logo>icones/ballon.jpg</logo>
+                    <seuil>25</seuil>
+                    <idcible>1</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>Berusbe</name>
+                    <logo>icones/ballon.jpg</logo>
+                    <seuil>50</seuil>
+                    <idcible>1</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>Gilbert</name>
+                    <logo>icones/ballon.jpg</logo>
+                    <seuil>100</seuil>
+                    <idcible>1</idcible>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>            
+            </palliers>
         </product>
         <product>
             <id>2</id>
@@ -39,10 +67,38 @@ and open the template in the editor.
             <croissance>1.07</croissance>
             <revenu>10</revenu>
             <vitesse>2500</vitesse>
-            <quantite>0</quantite>
+            <quantite>1</quantite>
             <timeleft>0</timeleft>
             <managerUnlocked>0</managerUnlocked>
-            <palliers></palliers>
+            <palliers>
+                <pallier>
+                    <name>Umbro</name>
+                    <logo>icones/crampons.jpg</logo>
+                    <seuil>25</seuil>
+                    <idcible>2</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>Adidas</name>
+                    <logo>icones/crampons.jpg</logo>
+                    <seuil>50</seuil>
+                    <idcible>2</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>Nike</name>
+                    <logo>icones/crampons.jpg</logo>
+                    <seuil>100</seuil>
+                    <idcible>2</idcible>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>              
+            </palliers>
         </product>
         <product>
             <id>3</id>
@@ -52,10 +108,38 @@ and open the template in the editor.
             <croissance>1.07</croissance>
             <revenu>50</revenu>
             <vitesse>15000</vitesse>
-            <quantite>0</quantite>
+            <quantite>1</quantite>
             <timeleft>0</timeleft>
             <managerUnlocked>0</managerUnlocked>
-            <palliers></palliers>
+            <palliers>
+                <pallier>
+                    <name>Petite équipe locale</name>
+                    <logo>icones/crampons.jpg</logo>
+                    <seuil>25</seuil>
+                    <idcible>3</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>Castres Olympique</name>
+                    <logo>icones/crampons.jpg</logo>
+                    <seuil>50</seuil>
+                    <idcible>3</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>All Blacks</name>
+                    <logo>icones/crampons.jpg</logo>
+                    <seuil>100</seuil>
+                    <idcible>3</idcible>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>          
+            </palliers>
         </product>
         <product>
             <id>4</id>
@@ -65,23 +149,79 @@ and open the template in the editor.
             <croissance>1.07</croissance>
             <revenu>500</revenu>
             <vitesse>60000</vitesse>
-            <quantite>0</quantite>
+            <quantite>1</quantite>
             <timeleft>0</timeleft>
             <managerUnlocked>0</managerUnlocked>
-            <palliers></palliers>
+            <palliers>
+                <pallier>
+                    <name>Terrain de Federale</name>
+                    <logo>icones/terrain.jpg</logo>
+                    <seuil>25</seuil>
+                    <idcible>4</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>Terrain de top14</name>
+                    <logo>icones/terrain.jpg</logo>
+                    <seuil>50</seuil>
+                    <idcible>4</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>Stade de France</name>
+                    <logo>icones/terrain.jpg</logo>
+                    <seuil>100</seuil>
+                    <idcible>4</idcible>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+            </palliers>
         </product>
         <product>
             <id>5</id>
             <name>Supporters</name>
-            <logo>icones/supporter.jpg</logo>
-            <cout>50000</cout>
+            <logo>icones/supporters.jpg</logo>
+            <cout>80000</cout>
             <croissance>1.07</croissance>
             <revenu>2500</revenu>
-            <vitesse>120000</vitesse>
-            <quantite>0</quantite>
+            <vitesse>150000</vitesse>
+            <quantite>1</quantite>
             <timeleft>0</timeleft>
             <managerUnlocked>0</managerUnlocked>
-            <palliers></palliers>
+            <palliers>
+                <pallier>
+                    <name>Ta famille et tes amis très proche</name>
+                    <logo>icones/supporters.jpg</logo>
+                    <seuil>25</seuil>
+                    <idcible>5</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>Toute ta ville</name>
+                    <logo>icones/suppoters.jpg</logo>
+                    <seuil>50</seuil>
+                    <idcible>5</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>Ton pays</name>
+                    <logo>icones/supporters.jpg</logo>
+                    <seuil>100</seuil>
+                    <idcible>5</idcible>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+            </palliers>
         </product>
         <product>
             <id>6</id>
@@ -91,174 +231,67 @@ and open the template in the editor.
             <croissance>1.07</croissance>
             <revenu>10000</revenu>
             <vitesse>600000</vitesse>
-            <quantite>0</quantite>
+            <quantite>1</quantite>
             <timeleft>0</timeleft>
             <managerUnlocked>0</managerUnlocked>
-            <palliers></palliers>
+            <palliers>
+                <pallier>
+                    <name>On sert que des Kro !</name>
+                    <logo>icones/supporters.jpg</logo>
+                    <seuil>25</seuil>
+                    <idcible>6</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>Une pression locale monsieur ?</name>
+                    <logo>icones/suppoters.jpg</logo>
+                    <seuil>50</seuil>
+                    <idcible>6</idcible>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+                <pallier>
+                    <name>Une coupe de champagne ?</name>
+                    <logo>icones/supporters.jpg</logo>
+                    <seuil>100</seuil>
+                    <idcible>6</idcible>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
+                    <unlocked>0</unlocked>
+                </pallier>
+            </palliers>
         </product>
     </products>
     <allunlocks>
         <pallier>
-            <name>Kipsta</name>
+            <name>Unlock 25</name>
             <logo>icones/ballon.jpg</logo>
-            <seuil>25</seuil>
-            <idcible>1</idcible>
+            <seuil>30</seuil>
+            <idcible>0</idcible>
             <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
+            <typeratio>vitesse</typeratio>
+            <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Berusbe</name>
+            <name>Unlock 50</name>
             <logo>icones/ballon.jpg</logo>
-            <seuil>50</seuil>
-            <idcible>1</idcible>
+            <seuil>60</seuil>
+            <idcible>0</idcible>
             <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
+            <typeratio>vitesse</typeratio>
+            <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Gilbert</name>
+            <name>Unlock 100</name>
             <logo>icones/ballon.jpg</logo>
-            <seuil>100</seuil>
-            <idcible>1</idcible>
+            <seuil>110</seuil>
+            <idcible>0</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Umbro</name>
-            <logo>icones/crampons.jpg</logo>
-            <seuil>25</seuil>
-            <idcible>2</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Adidas</name>
-            <logo>icones/crampons.jpg</logo>
-            <seuil>50</seuil>
-            <idcible>2</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Nike</name>
-            <logo>icones/crampons.jpg</logo>
-            <seuil>100</seuil>
-            <idcible>2</idcible>
-            <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Petite équipe locale</name>
-            <logo>icones/crampons.jpg</logo>
-            <seuil>25</seuil>
-            <idcible>3</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Castres Olympique</name>
-            <logo>icones/crampons.jpg</logo>
-            <seuil>50</seuil>
-            <idcible>3</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>All Blacks</name>
-            <logo>icones/crampons.jpg</logo>
-            <seuil>100</seuil>
-            <idcible>3</idcible>
-            <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Terrain de Federale</name>
-            <logo>icones/terrain.jpg</logo>
-            <seuil>25</seuil>
-            <idcible>4</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Terrain de top14</name>
-            <logo>icones/terrain.jpg</logo>
-            <seuil>50</seuil>
-            <idcible>4</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Stade de France</name>
-            <logo>icones/terrain.jpg</logo>
-            <seuil>100</seuil>
-            <idcible>4</idcible>
-            <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Ta famille et tes amis très proche</name>
-            <logo>icones/supporter.jpg</logo>
-            <seuil>25</seuil>
-            <idcible>5</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Toute ta ville</name>
-            <logo>icones/suppoter.jpg</logo>
-            <seuil>50</seuil>
-            <idcible>5</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Ton pays</name>
-            <logo>icones/supporter.jpg</logo>
-            <seuil>100</seuil>
-            <idcible>5</idcible>
-            <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>On sert que des Kro !</name>
-            <logo>icones/supporter.jpg</logo>
-            <seuil>25</seuil>
-            <idcible>6</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Une pression locale monsieur ?</name>
-            <logo>icones/suppoter.jpg</logo>
-            <seuil>50</seuil>
-            <idcible>6</idcible>
-            <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>
-        <pallier>
-            <name>Une coupe de champagne ?</name>
-            <logo>icones/supporter.jpg</logo>
-            <seuil>100</seuil>
-            <idcible>6</idcible>
-            <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
-            <unlocked>0</unlocked>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
         </pallier>
     </allunlocks>
     <upgrades>
@@ -266,9 +299,9 @@ and open the template in the editor.
             <name>Pompe à air</name>
             <logo>icones/ballon.jpg</logo>
             <seuil>25000</seuil>
-            <idcible>1</idcible>
+            <idcible>0</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -277,7 +310,7 @@ and open the template in the editor.
             <seuil>50000</seuil>
             <idcible>2</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -286,7 +319,7 @@ and open the template in the editor.
             <seuil>10000</seuil>
             <idcible>3</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -295,16 +328,16 @@ and open the template in the editor.
             <seuil>50000</seuil>
             <idcible>4</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
             <name>Mégaphone</name>
-            <logo>icones/supporters.jpg</logo>
+            <logo>icones/supporterss.jpg</logo>
             <seuil>100000</seuil>
             <idcible>5</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -313,7 +346,7 @@ and open the template in the editor.
             <seuil>250000</seuil>
             <idcible>6</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -322,7 +355,7 @@ and open the template in the editor.
             <seuil>500000</seuil>
             <idcible>1</idcible>
             <ratio>1.5</ratio>
-            <typeratio>VITESSE</typeratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -331,7 +364,7 @@ and open the template in the editor.
             <seuil>1000000</seuil>
             <idcible>2</idcible>
             <ratio>1.5</ratio>
-            <typeratio>VITESSE</typeratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -340,7 +373,7 @@ and open the template in the editor.
             <seuil>1000000</seuil>
             <idcible>3</idcible>
             <ratio>1.5</ratio>
-            <typeratio>VITESSE</typeratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -349,16 +382,16 @@ and open the template in the editor.
             <seuil>2500000</seuil>
             <idcible>4</idcible>
             <ratio>1.5</ratio>
-            <typeratio>VITESSE</typeratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
             <name>Bus de supporters</name>
-            <logo>icones/supporter.jpg</logo>
+            <logo>icones/supporters.jpg</logo>
             <seuil>2500000</seuil>
             <idcible>5</idcible>
             <ratio>1.5</ratio>
-            <typeratio>VITESSE</typeratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -367,7 +400,7 @@ and open the template in the editor.
             <seuil>10000000</seuil>
             <idcible>6</idcible>
             <ratio>1.5</ratio>
-            <typeratio>VITESSE</typeratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -376,7 +409,7 @@ and open the template in the editor.
             <seuil>25000000</seuil>
             <idcible>1</idcible>
             <ratio>1.5</ratio>
-            <typeratio>VITESSE</typeratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -385,7 +418,7 @@ and open the template in the editor.
             <seuil>50000000</seuil>
             <idcible>2</idcible>
             <ratio>1.5</ratio>
-            <typeratio>VITESSE</typeratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -394,7 +427,7 @@ and open the template in the editor.
             <seuil>100000000</seuil>
             <idcible>4</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -403,7 +436,7 @@ and open the template in the editor.
             <seuil>1000000000</seuil>
             <idcible>2</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -412,7 +445,7 @@ and open the template in the editor.
             <seuil>50000000000</seuil>
             <idcible>0</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
@@ -432,7 +465,7 @@ and open the template in the editor.
             <seuil>10000</seuil>
             <idcible>0</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
         </pallier>  
         <pallier>
