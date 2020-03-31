@@ -9,6 +9,7 @@ import generated.ProductType;
 import generated.World;
 import generated.PallierType;
 import generated.ProductsType;
+import generated.TyperatioType;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -194,6 +195,27 @@ public class Services {
         } else {
             // initialiser product.timeleft à product.vitesse pour lancer la production
             product.setTimeleft(product.getVitesse());
+        }
+        //partie sur les unlocks
+        List<PallierType> listePalliers = (List<PallierType>) product.getPalliers().getPallier();
+        for (PallierType unlock : listePalliers) {
+            //Si l'unlock n'est pas encore débloqué et qu'il y assez de produits pour le débloquer :
+            if (unlock.isUnlocked() == false && product.getQuantite() >= unlock.getSeuil()) {
+                //on passe à true la propriété du unloc
+                unlock.setUnlocked(true);
+                //si c'est un unlock de vitesse : on met à jour la nouvelle vitesse de création
+                if (unlock.getTyperatio() == TyperatioType.VITESSE) {
+                    int vitesse = product.getVitesse();
+                    vitesse = (int) (vitesse / unlock.getRatio());
+                    product.setVitesse(vitesse);
+                } 
+                //si c'est un unlock de gain : on met à jour le nouveau revenu du produit
+                else {
+                    double revenu = product.getRevenu();
+                    revenu = revenu * unlock.getRatio();
+                    product.setRevenu(revenu);
+                }
+            }
         }
         // sauvegarder les changements du monde
         saveWorldToXml(world, username);
