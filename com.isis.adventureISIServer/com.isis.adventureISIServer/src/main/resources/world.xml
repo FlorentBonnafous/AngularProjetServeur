@@ -11,7 +11,7 @@ and open the template in the editor.
     xsi:noNamespaceSchemaLocation='jaxb/WorldSchema/SchemaWorld.xml.xsd'>
     <name>Club Rugby</name>
     <logo>icones/logo.jpg</logo>
-    <money>20000000</money>
+    <money>200000</money>
     <score>0</score>
     <totalangels>0</totalangels>
     <activeangels>0</activeangels>

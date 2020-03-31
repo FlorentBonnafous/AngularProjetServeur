@@ -201,13 +201,18 @@ public class Services {
         for (PallierType unlock : listePalliers) {
             //Si l'unlock n'est pas encore débloqué et qu'il y assez de produits pour le débloquer :
             if (unlock.isUnlocked() == false && product.getQuantite() >= unlock.getSeuil()) {
-                //on passe à true la propriété du unloc
+                //on passe à true la propriété du unlock
                 unlock.setUnlocked(true);
                 //si c'est un unlock de vitesse : on met à jour la nouvelle vitesse de création
                 if (unlock.getTyperatio() == TyperatioType.VITESSE) {
                     int vitesse = product.getVitesse();
                     vitesse = (int) (vitesse / unlock.getRatio());
                     product.setVitesse(vitesse);
+                    //System.out.println("vitesse"+vitesse);
+                    //mise à jour du timeleft si un produit est en prod
+                    if(product.getTimeleft()>0){
+                        product.setTimeleft((long) (product.getTimeleft()/unlock.getRatio()));
+                    }
                 } 
                 //si c'est un unlock de gain : on met à jour le nouveau revenu du produit
                 else {
