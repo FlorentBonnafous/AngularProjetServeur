@@ -123,7 +123,7 @@ public class Services {
                 world.setMoney(world.getMoney() + revenu);
                 // on n'oublie pas aussi d'augmenter le score
                 world.setScore(world.getScore() + revenu);
-                System.out.println("money après calcul : " + world.getMoney());
+                //System.out.println("money après calcul : " + world.getMoney());
             }
         }
         return world;
@@ -157,13 +157,13 @@ public class Services {
         // aller chercher le monde qui correspond au joueur
         World world = getWorld(username);
         // trouver dans ce monde, le produit équivalent à celui passé// en paramètre
-        System.out.println("money update product : " + world.getMoney());
+        //System.out.println("money update product : " + world.getMoney());
         ProductType product = findProductByID(world, newproduct.getId());
         if (product == null) {
             System.out.println("pas produit");
             return false;
         }
-        System.out.println(" Update product: Manager de " + product.getName() + " : " + product.isManagerUnlocked());
+        //System.out.println(" Update product: Manager de " + product.getName() + " : " + product.isManagerUnlocked());
         // calculer la variation de quantité. Si elle est positive c'est
         // que le joueur a acheté une certaine quantité de ce produit
         // sinon c’est qu’il s’agit d’un lancement de production.
@@ -249,6 +249,12 @@ public class Services {
         world.setMoney(arrondi(world.getMoney()) - manager.getSeuil());
         // sauvegarder les changements au monde
         saveWorldToXml(world, username);
+        return true;
+    }
+    
+    // prend en paramètre le pseudo du joueur et le manager acheté.
+    // renvoie false si l’action n’a pas pu être traitée
+    public boolean updateUpgrade(String username, PallierType newmanager) throws JAXBException, IOException {
         return true;
     }
 
