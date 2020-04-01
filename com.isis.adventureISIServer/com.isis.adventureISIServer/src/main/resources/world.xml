@@ -32,7 +32,7 @@ and open the template in the editor.
             <palliers>            
                 <pallier>
                     <name>Kipsta</name>
-                    <logo>icones/ballon.jpg</logo>
+                    <logo>icones/BallonKipsta.jpg</logo>
                     <seuil>25</seuil>
                     <idcible>1</idcible>
                     <ratio>2</ratio>
@@ -41,7 +41,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Berusbe</name>
-                    <logo>icones/ballon.jpg</logo>
+                    <logo>icones/ballonberusbe.jpg</logo>
                     <seuil>50</seuil>
                     <idcible>1</idcible>
                     <ratio>2</ratio>
@@ -50,7 +50,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Gilbert</name>
-                    <logo>icones/ballon.jpg</logo>
+                    <logo>icones/ballongilbert.jpg</logo>
                     <seuil>100</seuil>
                     <idcible>1</idcible>
                     <ratio>3</ratio>
@@ -73,7 +73,7 @@ and open the template in the editor.
             <palliers>
                 <pallier>
                     <name>Umbro</name>
-                    <logo>icones/crampons.jpg</logo>
+                    <logo>icones/umro.jpg</logo>
                     <seuil>25</seuil>
                     <idcible>2</idcible>
                     <ratio>2</ratio>
@@ -82,7 +82,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Adidas</name>
-                    <logo>icones/crampons.jpg</logo>
+                    <logo>icones/adidas.jpg</logo>
                     <seuil>50</seuil>
                     <idcible>2</idcible>
                     <ratio>2</ratio>
@@ -91,7 +91,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Nike</name>
-                    <logo>icones/crampons.jpg</logo>
+                    <logo>icones/nike.jpg</logo>
                     <seuil>100</seuil>
                     <idcible>2</idcible>
                     <ratio>3</ratio>
@@ -114,7 +114,7 @@ and open the template in the editor.
             <palliers>
                 <pallier>
                     <name>Petite équipe locale</name>
-                    <logo>icones/crampons.jpg</logo>
+                    <logo>icones/equipe1.jpg</logo>
                     <seuil>25</seuil>
                     <idcible>3</idcible>
                     <ratio>2</ratio>
@@ -123,7 +123,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Castres Olympique</name>
-                    <logo>icones/crampons.jpg</logo>
+                    <logo>icones/CO.jpg</logo>
                     <seuil>50</seuil>
                     <idcible>3</idcible>
                     <ratio>2</ratio>
@@ -132,7 +132,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>All Blacks</name>
-                    <logo>icones/crampons.jpg</logo>
+                    <logo>icones/allblack.jpg</logo>
                     <seuil>100</seuil>
                     <idcible>3</idcible>
                     <ratio>3</ratio>
@@ -155,7 +155,7 @@ and open the template in the editor.
             <palliers>
                 <pallier>
                     <name>Terrain de Federale</name>
-                    <logo>icones/terrain.jpg</logo>
+                    <logo>icones/terrain1.jpg</logo>
                     <seuil>25</seuil>
                     <idcible>4</idcible>
                     <ratio>2</ratio>
@@ -164,7 +164,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Terrain de top14</name>
-                    <logo>icones/terrain.jpg</logo>
+                    <logo>icones/stadeclermont.jpeg</logo>
                     <seuil>50</seuil>
                     <idcible>4</idcible>
                     <ratio>2</ratio>
@@ -173,7 +173,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Stade de France</name>
-                    <logo>icones/terrain.jpg</logo>
+                    <logo>icones/stadedefrance.jpg</logo>
                     <seuil>100</seuil>
                     <idcible>4</idcible>
                     <ratio>3</ratio>
@@ -196,7 +196,7 @@ and open the template in the editor.
             <palliers>
                 <pallier>
                     <name>Ta famille et tes amis très proche</name>
-                    <logo>icones/supporters.jpg</logo>
+                    <logo>icones/supp1.jpg</logo>
                     <seuil>25</seuil>
                     <idcible>5</idcible>
                     <ratio>2</ratio>
@@ -205,7 +205,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Toute ta ville</name>
-                    <logo>icones/suppoters.jpg</logo>
+                    <logo>icones/supp2.jpg</logo>
                     <seuil>50</seuil>
                     <idcible>5</idcible>
                     <ratio>2</ratio>
@@ -214,7 +214,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Ton pays</name>
-                    <logo>icones/supporters.jpg</logo>
+                    <logo>icones/supp3.jpg</logo>
                     <seuil>100</seuil>
                     <idcible>5</idcible>
                     <ratio>3</ratio>
@@ -237,7 +237,7 @@ and open the template in the editor.
             <palliers>
                 <pallier>
                     <name>On sert que des Kro !</name>
-                    <logo>icones/supporters.jpg</logo>
+                    <logo>icones/kro.jpg</logo>
                     <seuil>25</seuil>
                     <idcible>6</idcible>
                     <ratio>2</ratio>
@@ -246,7 +246,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Une pression locale monsieur ?</name>
-                    <logo>icones/suppoters.jpg</logo>
+                    <logo>icones/berlue.jpg</logo>
                     <seuil>50</seuil>
                     <idcible>6</idcible>
                     <ratio>2</ratio>
@@ -255,7 +255,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Une coupe de champagne ?</name>
-                    <logo>icones/supporters.jpg</logo>
+                    <logo>icones/champagne.jpg</logo>
                     <seuil>100</seuil>
                     <idcible>6</idcible>
                     <ratio>3</ratio>
@@ -267,8 +267,8 @@ and open the template in the editor.
     </products>
     <allunlocks>
         <pallier>
-            <name>Unlock 25</name>
-            <logo>icones/ballon.jpg</logo>
+            <name>Promu en Federale 2</name>
+            <logo>icones/coupe1.jpg</logo>
             <seuil>30</seuil>
             <idcible>0</idcible>
             <ratio>2</ratio>
@@ -276,8 +276,8 @@ and open the template in the editor.
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Unlock 50</name>
-            <logo>icones/ballon.jpg</logo>
+            <name>Promu en Federale 1</name>
+            <logo>icones/federale1.jpg</logo>
             <seuil>60</seuil>
             <idcible>0</idcible>
             <ratio>2</ratio>
@@ -285,9 +285,27 @@ and open the template in the editor.
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Unlock 100</name>
-            <logo>icones/ballon.jpg</logo>
+            <name>Promu en ProD2</name>
+            <logo>icones/prod2.png</logo>
             <seuil>110</seuil>
+            <idcible>0</idcible>
+            <ratio>3</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Promu en Top14</name>
+            <logo>icones/top14.jpg</logo>
+            <seuil>200</seuil>
+            <idcible>0</idcible>
+            <ratio>3</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Champion de Top14</name>
+            <logo>icones/champion.jpg</logo>
+            <seuil>400</seuil>
             <idcible>0</idcible>
             <ratio>3</ratio>
             <typeratio>gain</typeratio>
@@ -297,7 +315,7 @@ and open the template in the editor.
     <upgrades>
         <pallier>
             <name>Pompe à air</name>
-            <logo>icones/ballon.jpg</logo>
+            <logo>icones/pompe.jpg</logo>
             <seuil>25000</seuil>
             <idcible>0</idcible>
             <ratio>3</ratio>
@@ -315,7 +333,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Cohésion d'équipe</name>
-            <logo>icones/equipe.jpg</logo>
+            <logo>icones/cohesion.jpg</logo>
             <seuil>10000</seuil>
             <idcible>3</idcible>
             <ratio>3</ratio>
@@ -324,7 +342,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Jardinier</name>
-            <logo>icones/terrain.jpg</logo>
+            <logo>icones/jardinier.jpg</logo>
             <seuil>50000</seuil>
             <idcible>4</idcible>
             <ratio>3</ratio>
@@ -333,7 +351,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Mégaphone</name>
-            <logo>icones/supporterss.jpg</logo>
+            <logo>icones/megaphone.JPG</logo>
             <seuil>100000</seuil>
             <idcible>5</idcible>
             <ratio>3</ratio>
@@ -342,7 +360,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>La boiteuse</name>
-            <logo>icones/buvette.jpg</logo>
+            <logo>icones/boiteuse.jpg</logo>
             <seuil>250000</seuil>
             <idcible>6</idcible>
             <ratio>3</ratio>
@@ -350,8 +368,8 @@ and open the template in the editor.
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
-            <name>Anti-derapant</name>
-            <logo>icones/ballon.jpg</logo>
+            <name>Gants anti-derapant</name>
+            <logo>icones/gants.jpg</logo>
             <seuil>500000</seuil>
             <idcible>1</idcible>
             <ratio>1.5</ratio>
@@ -360,7 +378,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Replique de ceux de Dan Carter</name>
-            <logo>icones/crampons.jpg</logo>
+            <logo>icones/cramponsCarter.jpg</logo>
             <seuil>1000000</seuil>
             <idcible>2</idcible>
             <ratio>1.5</ratio>
@@ -369,7 +387,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>3eme mi-temps</name>
-            <logo>icones/equipe.jpg</logo>
+            <logo>icones/3eme.jpg</logo>
             <seuil>1000000</seuil>
             <idcible>3</idcible>
             <ratio>1.5</ratio>
@@ -378,7 +396,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Stade Ernest Wallon</name>
-            <logo>icones/stade.jpg</logo>
+            <logo>icones/ernest.jpg</logo>
             <seuil>2500000</seuil>
             <idcible>4</idcible>
             <ratio>1.5</ratio>
@@ -387,7 +405,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Bus de supporters</name>
-            <logo>icones/supporters.jpg</logo>
+            <logo>icones/bus.jpg</logo>
             <seuil>2500000</seuil>
             <idcible>5</idcible>
             <ratio>1.5</ratio>
@@ -396,7 +414,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Rosé piscine</name>
-            <logo>icones/buvette.jpg</logo>
+            <logo>icones/rose.jpg</logo>
             <seuil>10000000</seuil>
             <idcible>6</idcible>
             <ratio>1.5</ratio>
@@ -405,7 +423,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Rebonds favorables</name>
-            <logo>icones/ballon.jpg</logo>
+            <logo>icones/rebond.jpg</logo>
             <seuil>25000000</seuil>
             <idcible>1</idcible>
             <ratio>1.5</ratio>
@@ -414,7 +432,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Déodorisant</name>
-            <logo>icones/crampons.jpg</logo>
+            <logo>icones/deo.jpg</logo>
             <seuil>50000000</seuil>
             <idcible>2</idcible>
             <ratio>1.5</ratio>
@@ -423,7 +441,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Camp nou</name>
-            <logo>icones/stade.jpg</logo>
+            <logo>icones/campnou.jpg</logo>
             <seuil>100000000</seuil>
             <idcible>4</idcible>
             <ratio>3</ratio>
@@ -431,10 +449,10 @@ and open the template in the editor.
             <unlocked>0</unlocked>
         </pallier>
         <pallier>
-            <name>Crampons qui courent vite</name>
-            <logo>icones/crampons.jpg</logo>
+            <name>Loges</name>
+            <logo>icones/loges.jpg</logo>
             <seuil>1000000000</seuil>
-            <idcible>2</idcible>
+            <idcible>6</idcible>
             <ratio>3</ratio>
             <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
@@ -452,7 +470,16 @@ and open the template in the editor.
     <angelupgrades>
         <pallier>
             <name>Ange Vitesse</name>
-            <logo>icones/ange.jpg</logo>
+            <logo>icones/habana.jpg</logo>
+            <seuil>10000</seuil>
+            <idcible>0</idcible>
+            <ratio>3</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>0</unlocked>
+        </pallier>  
+        <pallier>
+            <name>Ange Broching</name>
+            <logo>icones/rougerie.jpg</logo>
             <seuil>10000</seuil>
             <idcible>0</idcible>
             <ratio>3</ratio>
@@ -461,7 +488,7 @@ and open the template in the editor.
         </pallier>  
         <pallier>
             <name>Ange Cadrage Débordement</name>
-            <logo>icones/ange.jpg</logo>
+            <logo>icones/clerc.jpg</logo>
             <seuil>100000</seuil>
             <idcible>-1</idcible>
             <ratio>2</ratio>
@@ -469,14 +496,32 @@ and open the template in the editor.
             <unlocked>0</unlocked>
         </pallier>  
         <pallier>
-            <name>Ange Coup de Pied</name>
-            <logo>icones/ange.jpg</logo>
+            <name>Ange Drop</name>
+            <logo>icones/wilkinson.jpg</logo>
             <seuil>100000000</seuil>
             <idcible>-1</idcible>
             <ratio>2</ratio>
             <typeratio>ANGE</typeratio>
             <unlocked>0</unlocked>
-        </pallier>          
+        </pallier>   
+        <pallier>
+            <name>Ange Jeu au Pied</name>
+            <logo>icones/carter.jpg</logo>
+            <seuil>100000000</seuil>
+            <idcible>-1</idcible>
+            <ratio>2</ratio>
+            <typeratio>ANGE</typeratio>
+            <unlocked>0</unlocked>
+        </pallier>      
+        <pallier>
+            <name>Ange Légende</name>
+            <logo>icones/lomu.jpg</logo>
+            <seuil>100000000</seuil>
+            <idcible>-1</idcible>
+            <ratio>2</ratio>
+            <typeratio>ANGE</typeratio>
+            <unlocked>0</unlocked>
+        </pallier>    
     </angelupgrades> 
     <managers>
         <pallier>
