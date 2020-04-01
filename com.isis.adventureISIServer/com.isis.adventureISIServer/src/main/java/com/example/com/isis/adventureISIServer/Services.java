@@ -354,6 +354,33 @@ public class Services {
         saveWorldToXml(world, username);
         return true;
     }
+    
+    //fonction de suppression du monde
+    public void deleteWorld(String username)throws JAXBException, FileNotFoundException, IOException{
+        System.out.println("suppresion du monde");
+        World mondeAdelete = readWorldFromXml(username);
+        double totalAngels = mondeAdelete.getTotalangels();
+        double activeAngels = mondeAdelete.getActiveangels();
+        double addAngels = Math.round(150*Math.sqrt((mondeAdelete.getScore())/Math.pow(10,15)))-totalAngels;
+        activeAngels=activeAngels+addAngels;
+        totalAngels=totalAngels+addAngels;
+        double score = mondeAdelete.getScore();
+        
+        
+        //on recrée un monde afin de revenir à zéro: 
+        JAXBContext cont = JAXBContext.newInstance(World.class);
+        Unmarshaller u = cont.createUnmarshaller();
+        World world = (World) u.unmarshal(input);
+        
+        //on change les valeurs des anges pour ce monde ainsi que son score :
+        world.setTotalangels(totalAngels);
+        world.setActiveangels(activeAngels);
+        world.setScore(score);
+        
+        //Sauvegarde du nouveau monde
+        saveWorldToXml(world, username);
+        
+    }
 
     double arrondi(double nombre) {
         if (nombre < 1000) {

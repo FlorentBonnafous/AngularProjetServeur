@@ -7,9 +7,11 @@ package com.example.com.isis.adventureISIServer;
 
 import generated.PallierType;
 import generated.ProductType;
+import generated.World;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import static javax.swing.text.html.FormSubmitEvent.MethodType.GET;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -61,6 +63,15 @@ public class Webservice {
     public void putUpgrade(@Context HttpServletRequest request, PallierType upgrade) throws JAXBException, IOException {
         String username = request.getHeader("X-user");
         services.updateUpgrade(username, upgrade);
+    }
+    
+    @DELETE
+    @Path("world")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public void deleteWorld(@Context HttpServletRequest request) throws JAXBException, IOException {
+        String username = request.getHeader("X-User");
+        //System.out.println("username delete : "+username);
+        services.deleteWorld(username);
     }
 
 }
