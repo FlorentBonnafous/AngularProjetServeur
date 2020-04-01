@@ -65,6 +65,14 @@ public class Webservice {
         services.updateUpgrade(username, upgrade);
     }
     
+    @PUT
+    @Path("upgradeAngel")
+    public void putUpgradeAngel(@Context HttpServletRequest request, PallierType upgradeAngel) throws JAXBException, IOException {
+        String username = request.getHeader("X-user");
+        services.updateUpgradeAngel(username, upgradeAngel);
+        System.out.println("PUT ANGEL");
+    }
+    
     @DELETE
     @Path("world")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})

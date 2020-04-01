@@ -11,11 +11,11 @@ and open the template in the editor.
     xsi:noNamespaceSchemaLocation='jaxb/WorldSchema/SchemaWorld.xml.xsd'>
     <name>Club Rugby</name>
     <logo>icones/logo.jpg</logo>
-    <money>200000000000</money>
-    <score>200000000000</score>
-    <totalangels>0</totalangels>
-    <activeangels>0</activeangels>
-    <angelbonus>0.02</angelbonus>
+    <money>200000</money>
+    <score>200000</score>
+    <totalangels>5000000</totalangels>
+    <activeangels>5000000</activeangels>
+    <angelbonus>2</angelbonus>
     <lastupdate></lastupdate>
     <products>
         <product>
@@ -448,15 +448,6 @@ and open the template in the editor.
             <typeratio>gain</typeratio>
             <unlocked>0</unlocked>
         </pallier>
-        <pallier>
-            <name>Ange</name>
-            <logo>icones/ange.jpg</logo>
-            <seuil>250000000000</seuil>
-            <idcible>-1</idcible>
-            <ratio>1</ratio>
-            <typeratio>ANGE</typeratio>
-            <unlocked>0</unlocked>
-        </pallier>  
     </upgrades>
     <angelupgrades>
         <pallier>

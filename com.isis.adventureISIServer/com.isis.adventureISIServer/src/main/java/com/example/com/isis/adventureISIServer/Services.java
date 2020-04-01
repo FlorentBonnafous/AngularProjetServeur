@@ -119,9 +119,10 @@ public class Services {
                         p.setTimeleft(0);
                     }
                 }
+                
                 double revenu = quantiteproduite * p.getQuantite() * p.getRevenu();
                 // on n'oublie pas le bonus des anges
-                revenu += world.getActiveangels() * world.getAngelbonus() / 100;
+                revenu = revenu * (1 + world.getActiveangels() * world.getAngelbonus() / 100);
                 world.setMoney(world.getMoney() + revenu);
                 // on n'oublie pas aussi d'augmenter le score
                 world.setScore(world.getScore() + revenu);
@@ -160,6 +161,16 @@ public class Services {
         }
         return upgrade;
     }
+    public PallierType findUpgradeAngelByName(World world, String name) {
+        PallierType upgrade = null;
+        for (PallierType a : world.getAngelupgrades().getPallier()) {
+            if (name.equals(a.getName())) {
+                upgrade = a;
+            }
+        }
+        return upgrade;
+    }
+    
 
     public int findMinQtite(World world, int id) {
         ProductType pt = null;
@@ -354,31 +365,62 @@ public class Services {
         saveWorldToXml(world, username);
         return true;
     }
-    
+
     //fonction de suppression du monde
-    public void deleteWorld(String username)throws JAXBException, FileNotFoundException, IOException{
+    public void deleteWorld(String username) throws JAXBException, FileNotFoundException, IOException {
         System.out.println("suppresion du monde");
         World mondeAdelete = readWorldFromXml(username);
         double totalAngels = mondeAdelete.getTotalangels();
         double activeAngels = mondeAdelete.getActiveangels();
-        double addAngels = Math.round(150*Math.sqrt((mondeAdelete.getScore())/Math.pow(10,15)))-totalAngels;
-        activeAngels=activeAngels+addAngels;
-        totalAngels=totalAngels+addAngels;
+        double addAngels = Math.round(150 * Math.sqrt((mondeAdelete.getScore()) / Math.pow(10, 15))) - totalAngels;
+        activeAngels = activeAngels + addAngels;
+        totalAngels = totalAngels + addAngels;
         double score = mondeAdelete.getScore();
-        
-        
+
         //on recrée un monde afin de revenir à zéro: 
         JAXBContext cont = JAXBContext.newInstance(World.class);
         Unmarshaller u = cont.createUnmarshaller();
         World world = (World) u.unmarshal(input);
-        
+
         //on change les valeurs des anges pour ce monde ainsi que son score :
         world.setTotalangels(totalAngels);
-        world.setActiveangels(activeAngels);
+        world.setActiveangels(totalAngels);
         world.setScore(score);
-        
+
         //Sauvegarde du nouveau monde
         saveWorldToXml(world, username);
+
+    }
+
+    public boolean updateUpgradeAngel(String username, PallierType newange) throws JAXBException, IOException {
+        
+        World world = getWorld(username);
+        
+        PallierType ange = findUpgradeAngelByName(world, newange.getName());
+        if (ange == null) {
+            System.out.println("pas trouvé ungrade");
+            return false;
+        }
+        double angeActif = world.getActiveangels();
+        double newAngeActif = angeActif - ange.getSeuil();
+        if (ange.getIdcible() == -1) {
+            world.setAngelbonus((int) (world.getAngelbonus() + ange.getRatio()));
+            ange.setUnlocked(true);
+        } 
+        else if (ange.getIdcible() == 0) {
+            ange.setUnlocked(true);
+            System.out.println("est true ? "+ange.isUnlocked());
+            world.setActiveangels(ange.getSeuil() - world.getActiveangels());
+            List<ProductType> listeProduits = (List<ProductType>) world.getProducts().getProduct();
+            for (ProductType produit : listeProduits) {
+                unlockUnlock(ange, produit);
+            }
+        }
+        world.setActiveangels(newAngeActif);
+        //Sauvegarde du nouveau monde
+        
+        saveWorldToXml(world, username);
+        return true;
         
     }
 
