@@ -13,8 +13,8 @@ and open the template in the editor.
     <logo>icones/logo.jpg</logo>
     <money>200000</money>
     <score>200000</score>
-    <totalangels>5000000</totalangels>
-    <activeangels>5000000</activeangels>
+    <totalangels>0</totalangels>
+    <activeangels>0</activeangels>
     <angelbonus>2</angelbonus>
     <lastupdate></lastupdate>
     <products>
@@ -526,7 +526,7 @@ and open the template in the editor.
     <managers>
         <pallier>
             <name>Mauricio Reggiardo</name>
-            <logo>icones/reggiardo.jpg</logo>
+            <logo>icones/REGGIARDO.png</logo>
             <seuil>1000</seuil>
             <idcible>1</idcible>
             <ratio></ratio>
@@ -535,7 +535,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Jacques Brunel</name>
-            <logo>icones/brunel.jpg</logo>
+            <logo>icones/BRUNEL.png</logo>
             <seuil>15000</seuil>
             <idcible>2</idcible>
             <ratio></ratio>
@@ -544,7 +544,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Fabien Galthier</name>
-            <logo>icones/galtier.jpg</logo>
+            <logo>icones/GALTHIER.png</logo>
             <seuil>50000</seuil>
             <idcible>3</idcible>
             <ratio></ratio>
@@ -553,7 +553,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Christophe Urios</name>
-            <logo>icones/urios.jpg</logo>
+            <logo>icones/URIOS.png</logo>
             <seuil>150000</seuil>
             <idcible>4</idcible>
             <ratio></ratio>
@@ -562,7 +562,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Franck Azema</name>
-            <logo>icones/azema.jpg</logo>
+            <logo>icones/AZEMA.png</logo>
             <seuil>300000</seuil>
             <idcible>5</idcible>
             <ratio></ratio>
@@ -571,7 +571,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Guy Noves</name>
-            <logo>icones/noves.jpg</logo>
+            <logo>icones/NOVES.png</logo>
             <seuil>1000000</seuil>
             <idcible>6</idcible>
             <ratio></ratio>
