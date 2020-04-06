@@ -324,7 +324,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Crampons vissés</name>
-            <logo>icones/crampons.jpg</logo>
+            <logo>icones/crampons.png</logo>
             <seuil>50000</seuil>
             <idcible>2</idcible>
             <ratio>3</ratio>
