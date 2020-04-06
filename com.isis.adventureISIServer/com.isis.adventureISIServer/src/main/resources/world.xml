@@ -41,7 +41,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>Berusbe</name>
-                    <logo>icones/ballonberusbe.jpg</logo>
+                    <logo>icones/ballonberusbe.png</logo>
                     <seuil>50</seuil>
                     <idcible>1</idcible>
                     <ratio>2</ratio>
@@ -237,7 +237,7 @@ and open the template in the editor.
             <palliers>
                 <pallier>
                     <name>On sert que des Kro !</name>
-                    <logo>icones/kro.jpg</logo>
+                    <logo>icones/kro.png</logo>
                     <seuil>25</seuil>
                     <idcible>6</idcible>
                     <ratio>2</ratio>
