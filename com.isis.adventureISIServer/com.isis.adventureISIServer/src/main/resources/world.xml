@@ -21,7 +21,7 @@ and open the template in the editor.
         <product>
             <id>1</id>
             <name>Ballon</name>
-            <logo>icones/ballon.jpg</logo>
+            <logo>icones/ballon.png</logo>
             <cout>4</cout>
             <croissance>1.07</croissance>
             <revenu>1</revenu>
@@ -62,7 +62,7 @@ and open the template in the editor.
         <product>
             <id>2</id>
             <name>Crampons</name>
-            <logo>icones/crampons.jpg</logo>
+            <logo>icones/crampons.png</logo>
             <cout>40</cout>
             <croissance>1.07</croissance>
             <revenu>10</revenu>
@@ -103,7 +103,7 @@ and open the template in the editor.
         <product>
             <id>3</id>
             <name>Equipe</name>
-            <logo>icones/equipe.jpg</logo>
+            <logo>icones/team.png</logo>
             <cout>700</cout>
             <croissance>1.07</croissance>
             <revenu>50</revenu>
@@ -144,7 +144,7 @@ and open the template in the editor.
         <product>
             <id>4</id>
             <name>Terrain</name>
-            <logo>icones/terrain.jpg</logo>
+            <logo>icones/stade.png</logo>
             <cout>8000</cout>
             <croissance>1.07</croissance>
             <revenu>500</revenu>
@@ -185,7 +185,7 @@ and open the template in the editor.
         <product>
             <id>5</id>
             <name>Supporters</name>
-            <logo>icones/supporters.jpg</logo>
+            <logo>icones/supporter.png</logo>
             <cout>80000</cout>
             <croissance>1.07</croissance>
             <revenu>2500</revenu>
@@ -226,7 +226,7 @@ and open the template in the editor.
         <product>
             <id>6</id>
             <name>Buvette</name>
-            <logo>icones/buvette.jpg</logo>
+            <logo>icones/buvette.png</logo>
             <cout>200000</cout>
             <croissance>1.07</croissance>
             <revenu>10000</revenu>
