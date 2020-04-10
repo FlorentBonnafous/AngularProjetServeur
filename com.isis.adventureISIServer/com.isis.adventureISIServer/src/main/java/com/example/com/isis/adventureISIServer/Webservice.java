@@ -70,7 +70,7 @@ public class Webservice {
     public void putUpgradeAngel(@Context HttpServletRequest request, PallierType upgradeAngel) throws JAXBException, IOException {
         String username = request.getHeader("X-user");
         services.updateUpgradeAngel(username, upgradeAngel);
-        System.out.println("PUT ANGEL");
+        //System.out.println("PUT ANGEL");
     }
     
     @DELETE
