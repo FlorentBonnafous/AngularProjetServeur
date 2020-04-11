@@ -100,7 +100,7 @@ public class Services {
             } else {
                 int quantiteproduite = 0;
                 //System.out.println(" maj monde : Manager de " + p.getName() + " : " + p.isManagerUnlocked());
-                if (p.isManagerUnlocked()) {
+                if (p.isManagerUnlocked()&& p.getQuantite()>0) {
                     //On compte le nombre d'item produit pendant le temps écoulé
                     // ce n'est pas timespend que l'on divise, c'est le timespend auquel on a enlevé le
                     // timeleft du produit.
@@ -119,7 +119,7 @@ public class Services {
                         p.setTimeleft(0);
                     }
                 }
-                
+
                 double revenu = quantiteproduite * p.getQuantite() * p.getRevenu();
                 // on n'oublie pas le bonus des anges
                 revenu = revenu * (1 + world.getActiveangels() * world.getAngelbonus() / 100);
@@ -161,6 +161,7 @@ public class Services {
         }
         return upgrade;
     }
+
     public PallierType findUpgradeAngelByName(World world, String name) {
         PallierType upgrade = null;
         for (PallierType a : world.getAngelupgrades().getPallier()) {
@@ -170,7 +171,6 @@ public class Services {
         }
         return upgrade;
     }
-    
 
     public int findMinQtite(World world, int id) {
         ProductType pt = null;
@@ -297,22 +297,27 @@ public class Services {
         if (manager == null) {
             return false;
         }
-        // débloquer ce manager
-        manager.setUnlocked(true);
+
         //trouver le produit correspondant au manager
         ProductType product = findProductByID(world, manager.getIdcible());
         if (product == null) {
             return false;
         }
+        // débloquer ce manager
+        manager.setUnlocked(true);
         // débloquer le manager de ce produit
         product.setManagerUnlocked(true);
+        //ne pas lancer de prod si la qtité de produit est égale à 0
+        if(product.getQuantite()>0){
         product.setTimeleft(product.getVitesse());
+        }
         //System.out.println("Déblocage du manager !!!! " + product.isManagerUnlocked());
         // soustraire de l'argent du joueur le cout du manager
         world.setMoney(arrondi(world.getMoney()) - manager.getSeuil());
         // sauvegarder les changements au monde
         saveWorldToXml(world, username);
         return true;
+
     }
 
     // prend en paramètre le pseudo du joueur et le manager acheté.
@@ -379,9 +384,9 @@ public class Services {
     }
 
     public boolean updateUpgradeAngel(String username, PallierType newange) throws JAXBException, IOException {
-        
+
         World world = getWorld(username);
-        
+
         PallierType ange = findUpgradeAngelByName(world, newange.getName());
         if (ange == null) {
             return false;
@@ -391,8 +396,7 @@ public class Services {
         if (ange.getIdcible() == -1) {
             world.setAngelbonus((int) (world.getAngelbonus() + ange.getRatio()));
             ange.setUnlocked(true);
-        } 
-        else if (ange.getIdcible() == 0) {
+        } else if (ange.getIdcible() == 0) {
             ange.setUnlocked(true);
             world.setActiveangels(ange.getSeuil() - world.getActiveangels());
             List<ProductType> listeProduits = (List<ProductType>) world.getProducts().getProduct();
@@ -402,10 +406,10 @@ public class Services {
         }
         world.setActiveangels(newAngeActif);
         //Sauvegarde du nouveau monde
-        
+
         saveWorldToXml(world, username);
         return true;
-        
+
     }
 
     double arrondi(double nombre) {
